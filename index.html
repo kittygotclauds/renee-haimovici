@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Renée Haimovici — A Holocaust Testimony</title>
+<meta name="description" content="The testimony of Dr. Renée Haimovici, born Rena Pitaru in Dorohoi, Romania, 1934. Recorded October 17, 1996." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c0a08;
+    --bg-deep: #15110d;
+    --bg-soft: #1c1812;
+    --ink: #e8dcc4;
+    --ink-soft: #b5a78c;
+    --ink-mute: #7a6d57;
+    --accent: #c9a26a;
+    --accent-deep: #8a6a3e;
+    --rule: #2a2218;
+    --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.75;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* JOURNEY PROGRESS BAR */
+  .journey {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 36px;
+    z-index: 100;
+    background: rgba(12, 10, 8, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .journey-track {
+    position: relative;
+    height: 100%;
+    margin: 0 24px;
+  }
+  .journey-fill {
+    position: absolute;
+    top: 0; left: 0;
+    height: 1px;
+    margin-top: 17px;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.2s ease-out;
+  }
+  .journey-base {
+    position: absolute;
+    top: 17px; left: 0; right: 0;
+    height: 1px;
+    background: var(--rule);
+  }
+  .journey-waypoint {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  .journey-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--ink-mute);
+    margin: 14px auto 0;
+    transition: all 0.3s;
+  }
+  .journey-dot.visited { border-color: var(--accent); background: var(--accent-deep); }
+  .journey-dot.active { background: var(--accent); border-color: var(--accent); transform: scale(1.4); }
+  .journey-label {
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 4px;
+    transition: color 0.3s;
+  }
+  .journey-label.active { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 28px 80px;
+    position: relative;
+  }
+  .hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 40px;
+  }
+  .hero-portrait {
+    width: 220px;
+    height: 280px;
+    margin: 0 auto 48px;
+    background: linear-gradient(180deg, var(--bg-soft), var(--bg-deep));
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-mute);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    overflow: hidden;
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(48px, 8vw, 92px);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin-bottom: 22px;
+    color: var(--ink);
+  }
+  .hero-name em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-soft);
+    display: block;
+    font-size: 0.55em;
+    margin-top: 10px;
+    letter-spacing: 0.02em;
+  }
+  .hero-meta {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-soft);
+    margin-bottom: 56px;
+  }
+  .hero-meta span { color: var(--accent); }
+  .hero-line {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3.4vw, 32px);
+    font-weight: 300;
+    line-height: 1.4;
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--ink);
+    font-style: italic;
+  }
+
+  /* CHAPTER */
+  .chapter {
+    padding: 100px 0;
+    border-top: 1px solid var(--rule);
+    position: relative;
+  }
+  .chapter-num {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .chapter-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(38px, 6vw, 58px);
+    line-height: 1.05;
+    text-align: center;
+    margin-bottom: 56px;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+  .chapter-title em { font-style: italic; color: var(--accent); }
+
+  .chapter p {
+    margin-bottom: 1.5em;
+    color: var(--ink-soft);
+    font-size: 17px;
+    line-height: 1.85;
+  }
+  .chapter p:first-of-type::first-letter {
+    font-family: var(--serif);
+    font-size: 64px;
+    float: left;
+    line-height: 0.85;
+    padding: 8px 12px 0 0;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    margin: 64px auto;
+    padding: 0 0 0 32px;
+    border-left: 2px solid var(--accent);
+    max-width: 640px;
+  }
+  .pull-quote-text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(22px, 3vw, 28px);
+    line-height: 1.45;
+    color: var(--ink);
+    margin-bottom: 18px;
+    font-weight: 300;
+  }
+  .pull-quote-attr {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  /* AUDIO BUTTON (visual only, no audio attached yet) */
+  .listen-row {
+    margin: 48px 0;
+    text-align: center;
+  }
+  .listen-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 26px;
+    background: transparent;
+    border: 1px solid var(--accent-deep);
+    color: var(--accent);
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .listen-btn:hover {
+    border-color: var(--accent);
+    background: rgba(201, 162, 106, 0.06);
+  }
+  .listen-btn::before {
+    content: '';
+    display: inline-block;
+    width: 0; height: 0;
+    border-left: 8px solid var(--accent);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+  }
+
+  /* PHOTO CELL */
+  .photo-inline {
+    margin: 56px 0;
+    text-align: center;
+  }
+  .photo-cell {
+    background: var(--bg-soft);
+    border: 1px solid var(--rule);
+    aspect-ratio: 4 / 5;
+    max-width: 360px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-mute);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+  }
+  .photo-caption {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  /* TIMELINE */
+  .timeline-section {
+    background: var(--bg-deep);
+  }
+  .timeline-scroll {
+    display: flex;
+    overflow-x: auto;
+    padding: 30px 28px 60px;
+    gap: 24px;
+    scroll-snap-type: x mandatory;
+  }
+  .timeline-scroll::-webkit-scrollbar { height: 4px; }
+  .timeline-scroll::-webkit-scrollbar-track { background: var(--rule); }
+  .timeline-scroll::-webkit-scrollbar-thumb { background: var(--accent-deep); }
+  .timeline-card {
+    flex: 0 0 240px;
+    padding: 24px;
+    background: var(--bg-soft);
+    border: 1px solid var(--rule);
+    border-top: 2px solid var(--accent-deep);
+    scroll-snap-align: start;
+  }
+  .timeline-year {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .timeline-event {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+  .scroll-hint {
+    text-align: center;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+  }
+
+  /* FAMILY */
+  .family-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .family-card {
+    padding: 32px 26px;
+    background: var(--bg);
+  }
+  .family-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .family-role {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 14px;
+  }
+  .family-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .tag-perished { color: #b08566; border: 1px solid #5a3a26; }
+  .tag-survived { color: var(--accent); border: 1px solid var(--accent-deep); }
+  .tag-rescued { color: #9ab36a; border: 1px solid #4f6336; }
+  .family-story {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  /* GALLERY */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+  }
+  .gal-item {
+    aspect-ratio: 3 / 4;
+    background: var(--bg-soft);
+    border: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    text-align: center;
+  }
+  .gal-label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+  .gal-meta {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  /* GLOSSARY */
+  .glossary {
+    background: var(--bg-deep);
+    border-top: 1px solid var(--rule);
+  }
+  .gloss-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+  }
+  .gloss-term {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+  .gloss-def {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  /* IN MEMORY */
+  .memorial {
+    text-align: center;
+    padding: 120px 28px;
+    border-top: 1px solid var(--rule);
+  }
+  .memorial-symbol {
+    font-size: 24px;
+    color: var(--accent);
+    margin-bottom: 32px;
+    letter-spacing: 0.4em;
+  }
+  .memorial-text {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3vw, 28px);
+    font-style: italic;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 56px;
+    color: var(--ink);
+  }
+  .memorial-quote {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 640px;
+    margin: 0 auto;
+    font-style: italic;
+  }
+  .memorial-attr {
+    margin-top: 28px;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 60px 28px;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-mute);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .footer-name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(20px); transition: all 0.9s ease-out; }
+  .reveal.vis { opacity: 1; transform: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    body { font-size: 16px; }
+    .chapter { padding: 70px 0; }
+    .hero { padding: 90px 20px 60px; }
+    .journey-label { display: none; }
+    .pull-quote { padding-left: 20px; }
+    .gloss-grid { gap: 24px; }
+    .family-card { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- JOURNEY BAR -->
+  <div class="journey">
+    <div class="journey-track" id="journey-track">
+      <div class="journey-base"></div>
+      <div class="journey-fill" id="journey-fill"></div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">A Holocaust Testimony</div>
+      <div class="hero-portrait">[ portrait ]</div>
+      <h1 class="hero-name">
+        Renée Haimovici
+        <em>Born Rena Pitaru</em>
+      </h1>
+      <div class="hero-meta">
+        <span>June 20, 1934</span> · Dorohoi, Romania
+      </div>
+      <p class="hero-line">She was seven when her family was deported. She was nine when she came back. For fifty years, she did not speak of what happened in between.</p>
+    </div>
+  </header>
+
+  <!-- CHAPTER 1 -->
+  <section class="chapter" id="ch1">
+    <div class="container reveal">
+      <div class="chapter-num">01 · Chapter I</div>
+      <h2 class="chapter-title">Before <em>the Storm</em></h2>
+
+      <p>She was born Rena Pitaru on June 20, 1934, in Dorohoi, a city in the northeast of Romania. She was the youngest of three children and the only girl. Her older brothers were Gershon and David. Her parents had told her, before she came, that they would keep going until they had a daughter.</p>
+
+      <p>Her father, Iancu Pitaru, owned Cofetăria Pitaru, the first proper pastry shop in town. He had built it with his brothers, modeling it on Austrian and French confectioneries: chocolate, ice cream, fine pastry, served in a room people came to linger in. Her mother, Mina Pitaru, was a milliner who made some of the most admired hats in Dorohoi. The family was well-off. The pastry shop was the kind of place where the whole town said, <em>we'll have pastries at the Pitaru</em>.</p>
+
+      <div class="photo-inline">
+        <div class="photo-cell">[ Iancu Pitaru, c. 1927 ]</div>
+        <div class="photo-caption">Renée's Father · Dorohoi</div>
+      </div>
+
+      <p>The household was Orthodox but modern. Her grandfather on her mother's side, Reb Yosl Naftule, was the head of the shoemakers' synagogue. Her father joined that congregation after he married into the family, even though the bakers had their own synagogue too. There were at least four synagogues in town, organized by trade: tailors, shoemakers, farriers, bakers. Friday nights were Shabbat at home. Saturday lunches were the long midday meal at her grandparents' house, with all the uncles and aunts.</p>
+
+      <p>She was surrounded by her family. Her grandmother Hanna helped run the business. Her uncles Marco, Aron, Berko, Kidale, and Aronesh were everywhere. Her cousins came in and out of the apartment above the pastry shop. The world she was born into was small, dense, and held together by people who loved her.</p>
+
+      <div class="pull-quote">
+        <p class="pull-quote-text">"Coffeteria Pitaru. Everybody was saying we are going to have pastries at the Pitaru."</p>
+        <p class="pull-quote-attr">Renée Haimovici · 1996</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 2 -->
+  <section class="chapter" id="ch2">
+    <div class="container reveal">
+      <div class="chapter-num">02 · Chapter II</div>
+      <h2 class="chapter-title">The First <em>Stones</em></h2>
+
+      <p>She was five in 1939, six in 1940. The Romanian fascists, the Iron Guard's Black Shirts and the Cuza party, were sweeping through northern Romania. They wanted the Jewish merchants gone so the Gentile economic class could take their place. Dorohoi was a small city where Jewish families ran much of the trade. That made it a target.</p>
+
+      <p>The first warnings came as stones through the windows of the pastry shop, then bullets through the windows of the apartment above it. Her mother yelled at the children to get under the beds, behind the heavy furniture, anywhere out of the line of fire. After it stopped, her parents told them not to wander far from home, not to talk to strangers, not to repeat what they heard inside the house.</p>
+
+      <p>At home, the adults switched to Yiddish whenever they discussed anything important. The Gentile employees in the shop spoke Romanian, and the family did not want them to follow. The children learned to listen for the change in language and understand that something was wrong.</p>
+
+      <p>By 1940 it was clear that the future they had been planning for, a future in which Jews in Dorohoi would simply be Romanian citizens, was gone.</p>
+    </div>
+  </section>
+
+  <!-- CHAPTER 3 -->
+  <section class="chapter" id="ch3">
+    <div class="container reveal">
+      <div class="chapter-num">03 · Chapter III</div>
+      <h2 class="chapter-title">The <em>Coffin Cellar</em></h2>
+
+      <p>The deportations to Transnistria came in waves. Renée's uncle Marco was taken with his wife and three children in the first wave. Her uncle Aron and her aunt Fanny were taken in the second. In June 1941, the family learned they were on the list for the third.</p>
+
+      <p>An informant at the police tipped them off. The family decided to hide. Thirteen of them, her grandmother Hanna, her uncles Kidale and Berko, her aunt Surke and her cousin Rosica, her parents, her two brothers, herself, and the family dog, climbed down into the cellar of a relative's coffin shop and hid behind the unfinished coffins. They left her grandmother behind in the family home, hoping she would be too old to deport.</p>
+
+      <p>The police came in the morning. They beat the grandmother. She said nothing. Then her uncle Aronesh, a war veteran who was not on the list, came down to the police station, and told the police where the rest of the family was hidden. They opened the cellar door, dragged the thirteen of them out, and marched them to the train station.</p>
+
+      <div class="pull-quote">
+        <p class="pull-quote-text">"If we would have had to make a special train for the Pitaru family, we would have done it. It's too bad that you hide because you would have gone anyways."</p>
+        <p class="pull-quote-attr">What the Romanian police said · June 1941</p>
+      </div>
+
+      <p>The cattle wagons held three or four hundred people each. The family was loaded in. They waited at the station all night and all the next day because of a mechanical problem with the train. Her uncle Berku slipped out, found a seventeen-year-old boy, and sent him with a note to Dr. Daniloff, the head of the Jewish community, asking him to organize bread and water for the people on the train. A bakery worked through the night. Bread and bottles of water were delivered before the train pulled out the next morning. That bread was their food for the journey.</p>
+
+      <div class="listen-row">
+        <button class="listen-btn">Listen to testimony</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 4 -->
+  <section class="chapter" id="ch4">
+    <div class="container reveal">
+      <div class="chapter-num">04 · Chapter IV</div>
+      <h2 class="chapter-title">Oleanica, <em>and the Trench</em></h2>
+
+      <p>The train carried them to a station called Lădijin. From there, they walked twenty-five kilometers on foot, in long rows guarded by soldiers, to a village called Oleanica. They were housed in cow stalls. They cooked outside. They slept on hay. Renée was seven years old and had never been outside of Dorohoi.</p>
+
+      <p>For four months her father worked the potato harvest in a Ukrainian collective. The family sold whatever clothing they had brought to villagers in exchange for potatoes and eggs. She remembers being hungry constantly. She remembers her mother washing the children and their clothes in the river, hanging the clothes to dry, and putting them back on her wet skin.</p>
+
+      <p>In autumn 1942, the SS, Romanian gendarmes, and Ukrainian collaborators arrived for a mass killing. They lined the Jews of Oleanica up at a long table. Her cousin Rosica, who was educated, was forced to write down each name as the people walked past. Dr. Daniloff, the same lawyer and violinist who had sent the bread, was forced to play. The piece had a name. The piece was called <em>Before Death</em>.</p>
+
+      <div class="pull-quote">
+        <p class="pull-quote-text">"I remember hearing him playing the violin. The song that he was playing was a song that I didn't know at that time what it's called. But it was called Before Death. Before you die."</p>
+        <p class="pull-quote-attr">Renée Haimovici · on Dr. Daniloff</p>
+      </div>
+
+      <p>Her uncle Berku had bribed a senior officer with money the family had hidden in their shoes and pillows. Just before the line moved, gendarmes pulled the thirteen of them out and threw them into a trench at the side of the road, the kind of trench soldiers dig in war. They covered the trench with branches from the trees so it could not be seen from above.</p>
+
+      <p>They lay in the trench from morning until night. They could not see what was happening on the road. They could hear everything. People crying. The violin. Trucks coming and going. The Jews who had been at the table were driven to the Bug River, shot, and dumped. Their clothes were piled in a mountain and trucked away. About fifty Jews were left in Oleanica at nightfall. The Pitaru family was thirteen of them.</p>
+
+      <div class="pull-quote">
+        <p class="pull-quote-text">"At the end of the day, a total silence fell. It was like some kind of thunderbolt had come, taken the people away, and now there aren't any more people left."</p>
+        <p class="pull-quote-attr">Renée Haimovici · age 8</p>
+      </div>
+
+      <p>That night, gendarmes came back for more money. Her father and her uncle were beaten badly. Blood came out of their mouths. They had nothing left to give. The beating cost her father his front teeth, which is part of why she became a dentist.</p>
+    </div>
+  </section>
+
+  <!-- CHAPTER 5 -->
+  <section class="chapter" id="ch5">
+    <div class="container reveal">
+      <div class="chapter-num">05 · Chapter V</div>
+      <h2 class="chapter-title">Tulchin, <em>and the Blanket</em></h2>
+
+      <p>They were moved to Certvertinovca, then to a ghetto in Tulchin. Twenty-five people lived in two rooms. They slept in one long line on planks laid across bricks, with sacks of hay and leaves for mattresses. Her older brother went out at four in the morning to gather potatoes in the fields and brought back a small bag each night. Her father and uncle baked for the officers' garrison. Her younger brother folded blankets all day for German soldiers in freezing temperatures. He folded them with the warm side toward his body for the few minutes he could, then gave them up at the end of the day.</p>
+
+      <p>On February 21, 1943, her brother had his bar mitzvah in the ghetto. He was thirteen. He had spent the day shivering in the blanket warehouse. A German officer who had seen him shivering told him he could keep the last blanket. The family sewed it into a suit.</p>
+
+      <div class="pull-quote">
+        <p class="pull-quote-text">"This blanket became his bar mitzvah suit. He was very proud to have it because February was a very cold winter in Ukraine."</p>
+        <p class="pull-quote-attr">Renée Haimovici · February 1943</p>
+      </div>
+
+      <p>Her aunt and her cousin had been sent to a farm village outside Tulchin. Her aunt had a small talent for fortune telling, a parlor trick from before the war, and now used it to read cards for Ukrainian wives whose husbands and sons were at the front. They paid her in food and a little money. She mailed the family empty potato sacks; they unraveled the sacks into fibers and made small jackets and socks for the children. The whole ghetto was kept alive on what other people threw away.</p>
+
+      <p>They were given one hour a week to leave the ghetto for shopping. They were guarded by Romanian gendarmes and German officers. Many were beaten while they lived there. Her father was beaten badly enough, twice, that the family did not know if he would survive.</p>
+
+      <p>She was eight, then nine. She missed her grandmother who had died. She befriended the old men in the ghetto, the way some children befriend cats, and gave them what little food she had. One of them died. She remembers that to this day.</p>
+
+      <div class="pull-quote">
+        <p class="pull-quote-text">"The little bit of food I used to give it to an older man that in the end he died. The sadness, probably I have it until today."</p>
+        <p class="pull-quote-attr">Renée Haimovici · on the old men of Tulchin</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 6 -->
+  <section class="chapter" id="ch6">
+    <div class="container reveal">
+      <div class="chapter-num">06 · Chapter VI</div>
+      <h2 class="chapter-title">The <em>Sled</em></h2>
+
+      <p>By late 1943, the German army was breaking on the eastern front. A Romanian officer who passed through the Tulchin garrison carried messages back and forth between the families. Word came from Bucharest that survivors might be allowed to return. The Ukrainians did not want to let the Jews go. They needed the unpaid labor, and they did not want the survivors to tell what had happened in the villages.</p>
+
+      <p>The family bribed two Ukrainians for two sleds and two horses. They piled in: her parents, her uncles, her aunts, her cousin, her brothers, her, and the dog. They started a ninety-mile journey through deep winter snow toward the rail station at Mogilev.</p>
+
+      <p>They could not see where they were going. There were no signs and the snow had erased the road. Halfway through the trip, her youngest uncle, the one who had organized everything, who had slipped notes through fences, who had bribed officers, collapsed. He was having a heart attack. His brothers rubbed him with the alcohol they had brought, and gave him mouth to mouth, and he came back. They drove on.</p>
+
+      <p>They reached Mogilev. They sat in quarantine for a month for typhus delousing, because the Romanian government would not let Jews back into Romania carrying disease. Then they took trains and sleds and trains again until they arrived in Dorohoi in the spring of 1944. She was nine years old.</p>
+    </div>
+  </section>
+
+  <!-- CHAPTER 7 -->
+  <section class="chapter" id="ch7">
+    <div class="container reveal">
+      <div class="chapter-num">07 · Chapter VII</div>
+      <h2 class="chapter-title">After</h2>
+
+      <p>Their home was occupied by former Gentile employees, who fled as the Soviet army advanced. The family moved back into the empty rooms. Her parents reopened the pastry shop. Romania was liberated in August 1944.</p>
+
+      <p>The Jews who came back were furious. Some of the people responsible for the deportations were beaten to death by mobs in the street. Others fled the city and never came back, knowing they would be killed if they did.</p>
+
+      <p>By 1947 the new Communist government had nationalized the family business. Her father, who had built the first pastry shop in town, became an employee in the store. The Communists were dangerous in a different way than the fascists had been, but they were dangerous all the same. One by one, the family began to leave for Israel. Her brother David went on an aliyah in 1948. Her uncles followed. Her grandmother and another aunt followed. By 1950 the only members of her family left in Dorohoi were her parents, her older brother Gershon, and her.</p>
+
+      <p>She had lost grades one, two, and three of school to the deportation. She entered straight into the fourth grade. She finished high school in 1952, started medicine at the University of Cluj, transferred to Bucharest to live with her brother who was already in medical school, and graduated dental school in 1958. The government posted her to a clinic in Galați.</p>
+
+      <p>Within her first week at the clinic, a young radiologist from the local hospital came in as a patient. His name was Hermann Haimovici. They married in 1959, in a small ceremony in her brother-in-law's home, with a rabbi and a chuppah and a short veil instead of a long dress.</p>
+
+      <div class="photo-inline">
+        <div class="photo-cell">[ Renée and Hermann · 1959 ]</div>
+        <div class="photo-caption">Their wedding · Galați</div>
+      </div>
+
+      <p>Her parents got their Israeli visa in 1961 and left without her, because she was already married and Hermann did not have permission yet. Her son was born that November. She named him after her uncle Aaron, who had been deported in an earlier wave and had never come back. She had promised her aunt that if she had a boy, she would give him Aaron's name. He is her only son.</p>
+    </div>
+  </section>
+
+  <!-- CHAPTER 8 -->
+  <section class="chapter" id="ch8">
+    <div class="container reveal">
+      <div class="chapter-num">08 · Chapter VIII</div>
+      <h2 class="chapter-title">Boston, <em>and the Long Silence</em></h2>
+
+      <p>In March 1963, the three of them finally left Romania. They spent six months in Rome under HIAS sponsorship while a Jewish community somewhere in America agreed to take them. The community of Fall River, Massachusetts said yes.</p>
+
+      <p>An eighty-two-year-old woman named Mrs. Arnold Gerard met them at the airport in New Bedford in a 1963 Buick they had never seen the like of. She drove them to a furnished apartment on the grounds of Union Hospital. The refrigerator was stocked. There was a television. There was a small bed for her son. She handed Hermann a wallet with fifty dollars in it and told them she would see them every Saturday and that anything they needed they should ask her for.</p>
+
+      <p>Hermann did his medical residency at the V.A. hospital in Jamaica Plain. Renée trained at the Forsyth Dental Infirmary as a hygienist while her sister-in-law, who had emigrated by then, looked after her son. Then she did a postgraduate course in pediatric dentistry at Tufts. Her son went to Maimonides for first and second grade. She gave children, every day, the smile her father had been beaten out of.</p>
+
+      <div class="pull-quote">
+        <p class="pull-quote-text">"I swear that nobody will ever do to my teeth what has been done to my father's. I want to see them smiling rather than see people that cry and have sadness."</p>
+        <p class="pull-quote-attr">Renée Haimovici · on becoming a dentist</p>
+      </div>
+
+      <p>For about fifty years, the family did not speak about Transnistria outside the family. Her parents had asked the children to forget. So she did, on the surface. She built her practice. She raised her son. She kept the rest inside.</p>
+
+      <p>After her mother died, the silence broke and the depression came with it. The dreams she had hidden in the day came back at night. She was always on a boat, on a train, in a crowd, reaching for her parents' hands.</p>
+
+      <div class="pull-quote">
+        <p class="pull-quote-text">"I dream all the time. The fact that I am not expressing in daytime, I relive these horrors in my dreams. I'm always on boats, trains, in big crowds. I'm always trying to clutch to my parents."</p>
+        <p class="pull-quote-attr">Renée Haimovici · 1996</p>
+      </div>
+
+      <p>On October 17, 1996, in Newton, Massachusetts, she sat down in front of a camera with an interviewer named Bernice Borison and told the story for the first time outside the family. The recording is two hours long. It is the source of everything on this site.</p>
+    </div>
+  </section>
+
+  <!-- AARON -->
+  <section class="chapter" id="aaron" style="background: var(--bg-deep);">
+    <div class="container reveal">
+      <div class="chapter-num">A name carried forward</div>
+      <h2 class="chapter-title"><em>Aaron</em></h2>
+      <p style="text-align:center; font-family: var(--serif); font-size: clamp(20px,3vw,26px); line-height: 1.6; color: var(--ink-soft); font-style: italic; max-width: 600px; margin: 0 auto;">
+        Her uncle Aaron Pitaru was deported in an earlier wave and never returned. When her son was born in Romania in 1961, she gave him Aaron's name. She did not have another child. She said she carried a double love for the two of them, the uncle she had barely known, and the son she would not let go of.
+      </p>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="chapter timeline-section" id="timeline">
+    <div class="reveal">
+      <div class="chapter-num">A Life in Years</div>
+      <h2 class="chapter-title">Timeline</h2>
+      <div class="scroll-hint">← scroll horizontally →</div>
+      <div class="timeline-scroll">
+
+        <div class="timeline-card">
+          <div class="timeline-year">1934</div>
+          <div class="timeline-event">Born Rena Pitaru in Dorohoi, Romania, on June 20.</div>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-year">1939</div>
+          <div class="timeline-event">First pogroms in Dorohoi. Stones and bullets through the windows of the pastry shop. She is five.</div>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-year">1941</div>
+          <div class="timeline-event">Family hides in a coffin shop's cellar. Found and put on the cattle train to Transnistria. She is seven.</div>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-year">1942</div>
+          <div class="timeline-event">Mass killing at Oleanica. Family hidden in a roadside trench. Moved to the Tulchin ghetto.</div>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-year">1943</div>
+          <div class="timeline-event">Older brother's bar mitzvah in the ghetto. Suit sewn from a German blanket. February 21.</div>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-year">1944</div>
+          <div class="timeline-event">Ninety-mile sled escape through deep winter to Mogilev. Quarantine. Reaches Dorohoi in spring. Romania liberated in August.</div>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-year">1947</div>
+          <div class="timeline-event">Communist government nationalizes the family business. Father becomes an employee in his own store.</div>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-year">1948</div>
+          <div class="timeline-event">Brother David emigrates to Israel on an aliyah. Family begins to scatter.</div>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-year">1958</div>
+          <div class="timeline-event">Graduates dental school in Bucharest. Posted to a clinic in Galați.</div>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-year">1959</div>
+          <div class="timeline-event">Marries Hermann Haimovici, a radiologist who came in as a patient.</div>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-year">1961</div>
+          <div class="timeline-event">Parents emigrate to Israel. Son Aaron born in November, named for the uncle who never returned.</div>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-year">1963</div>
+          <div class="timeline-event">Family of three leaves Romania. Six months in Rome. Sponsored by the Jewish community of Fall River, Massachusetts.</div>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-year">1960s</div>
+          <div class="timeline-event">Trains at Forsyth and Tufts. Builds a pediatric dental practice in Boston.</div>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-year">1996</div>
+          <div class="timeline-event">Records two hours of testimony on October 17 in Newton, Massachusetts. She is sixty-two.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAMILY -->
+  <section class="chapter" id="family">
+    <div class="container reveal">
+      <div class="chapter-num">The Pitaru Family</div>
+      <h2 class="chapter-title">Family</h2>
+    </div>
+
+    <div class="container">
+      <div class="family-grid">
+
+        <div class="family-card">
+          <div class="family-name">Iancu Pitaru</div>
+          <div class="family-role">Father</div>
+          <div class="family-tag tag-survived">Survived</div>
+          <p class="family-story">Founder of Cofetăria Pitaru, the first proper pastry shop in Dorohoi. Beaten so badly by Romanian gendarmes that he lost his front teeth. Survived Transnistria. Returned to Dorohoi and reopened the shop, which the Communists later nationalized.</p>
+        </div>
+
+        <div class="family-card">
+          <div class="family-name">Mina Pitaru</div>
+          <div class="family-role">Mother</div>
+          <div class="family-tag tag-survived">Survived</div>
+          <p class="family-story">A milliner with a serious reputation. Made some of the most admired hats in town. Pulled her children under the beds during the 1939 pogroms. Survived Transnistria. Emigrated to Israel in 1961.</p>
+        </div>
+
+        <div class="family-card">
+          <div class="family-name">Gershon Pitaru</div>
+          <div class="family-role">Older Brother</div>
+          <div class="family-tag tag-survived">Survived</div>
+          <p class="family-story">The oldest of the three children. Worked the potato fields at four in the morning during their time in the Tulchin ghetto, bringing back a small bag of potatoes for the family every night. Became a physician.</p>
+        </div>
+
+        <div class="family-card">
+          <div class="family-name">David Pitaru</div>
+          <div class="family-role">Middle Brother</div>
+          <div class="family-tag tag-survived">Survived</div>
+          <p class="family-story">Folded blankets all day for German soldiers in freezing temperatures. Had his bar mitzvah in the Tulchin ghetto on February 21, 1943, in a suit sewn from a German blanket. Emigrated to Israel in 1948 and fought in four Israeli wars.</p>
+        </div>
+
+        <div class="family-card">
+          <div class="family-name">Hanna Pitaru</div>
+          <div class="family-role">Paternal Grandmother</div>
+          <div class="family-tag tag-perished">Perished</div>
+          <p class="family-story">Helped run the family business. Beaten by police when the family hid in the coffin shop's cellar. Said nothing. Survived Transnistria but did not survive long after.</p>
+        </div>
+
+        <div class="family-card">
+          <div class="family-name">Aaron Pitaru</div>
+          <div class="family-role">Uncle (Father's Brother)</div>
+          <div class="family-tag tag-perished">Perished</div>
+          <p class="family-story">Deported in an earlier wave to Transnistria. Never returned. Renée named her only son for him in 1961.</p>
+        </div>
+
+        <div class="family-card">
+          <div class="family-name">Marco Pitaru</div>
+          <div class="family-role">Uncle (Father's Brother)</div>
+          <div class="family-tag tag-perished">Perished</div>
+          <p class="family-story">Taken in the first wave of deportations from Dorohoi, with his wife and three children. Did not return.</p>
+        </div>
+
+        <div class="family-card">
+          <div class="family-name">Berko Pitaru</div>
+          <div class="family-role">Uncle (Father's Brother)</div>
+          <div class="family-tag tag-survived">Survived</div>
+          <p class="family-story">The youngest of the brothers. The one who slipped a note out of the cattle train to Dr. Daniloff, asking for bread and water. The one who bribed the officer at Oleanica to pull the family out of the killing line. Nearly died of a heart attack on the sled trip back. Emigrated to Israel.</p>
+        </div>
+
+        <div class="family-card">
+          <div class="family-name">Surke Pitaru</div>
+          <div class="family-role">Aunt</div>
+          <div class="family-tag tag-rescued">Rescuer</div>
+          <p class="family-story">Worked as a fortune teller for Ukrainian wives during the deportation, reading cards in exchange for food and small amounts of money. Mailed potato sacks to the Tulchin ghetto, which the family unraveled into fibers for jackets and socks. The money she saved paid for the sled escape.</p>
+        </div>
+
+        <div class="family-card">
+          <div class="family-name">Rosica Pitaru</div>
+          <div class="family-role">Cousin</div>
+          <div class="family-tag tag-survived">Survived</div>
+          <p class="family-story">Forced to write down each name as the Jews of Oleanica were processed for the killing. Carried the memory of being made the secretary of an atrocity for the rest of her life. Became a pediatrician.</p>
+        </div>
+
+        <div class="family-card">
+          <div class="family-name">Dr. Daniloff</div>
+          <div class="family-role">Head of the Jewish Community, Dorohoi</div>
+          <div class="family-tag tag-rescued">Rescuer</div>
+          <p class="family-story">Lawyer and violinist. Arranged the overnight bread and water delivery to the cattle wagons in 1941. Forced by the SS at Oleanica to play his violin while the Jews of the village were marched to their deaths. The piece was called Before Death.</p>
+        </div>
+
+        <div class="family-card">
+          <div class="family-name">Hermann Haimovici</div>
+          <div class="family-role">Husband</div>
+          <div class="family-tag tag-survived">Survived</div>
+          <p class="family-story">Radiologist at Hospital Number Two in Galați. Came into Renée's clinic as a patient in her first week of practice. They married in 1959. Did his American medical residency at the V.A. in Jamaica Plain.</p>
+        </div>
+
+        <div class="family-card">
+          <div class="family-name">Aaron (Robert) Haimovici</div>
+          <div class="family-role">Son</div>
+          <div class="family-tag tag-survived">Survived</div>
+          <p class="family-story">Born November 1961 in Galați. Named for the uncle who perished. Attended Maimonides for first and second grade in Boston. Became a doctor.</p>
+        </div>
+
+        <div class="family-card">
+          <div class="family-name">Mrs. Arnold Gerard</div>
+          <div class="family-role">American Sponsor, Fall River</div>
+          <div class="family-tag tag-rescued">Rescuer</div>
+          <p class="family-story">Eighty-two years old. Met the family at the New Bedford airport in 1963 in a 1963 Buick. Drove them to a furnished apartment with a stocked refrigerator. Handed Hermann a wallet with fifty dollars. Told them she would see them every Saturday. She lived to be a hundred.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="chapter" id="gallery">
+    <div class="container reveal">
+      <div class="chapter-num">Archive</div>
+      <h2 class="chapter-title">Photographs</h2>
+    </div>
+
+    <div class="container">
+      <div class="gallery-grid">
+        <div class="gal-item">
+          <div class="gal-label">Haim Pitaru</div>
+          <div class="gal-meta">Grandfather · c. 1900s</div>
+        </div>
+        <div class="gal-item">
+          <div class="gal-label">Mina Pitaru</div>
+          <div class="gal-meta">Mother · c. 1923</div>
+        </div>
+        <div class="gal-item">
+          <div class="gal-label">Iancu Pitaru</div>
+          <div class="gal-meta">Father · c. 1927</div>
+        </div>
+        <div class="gal-item">
+          <div class="gal-label">Aaron Pitaru</div>
+          <div class="gal-meta">Uncle · perished in Transnistria</div>
+        </div>
+        <div class="gal-item">
+          <div class="gal-label">Surke and Rosica</div>
+          <div class="gal-meta">Aunt and cousin</div>
+        </div>
+        <div class="gal-item">
+          <div class="gal-label">Vatra Dornei</div>
+          <div class="gal-meta">Family resort · c. 1945</div>
+        </div>
+        <div class="gal-item">
+          <div class="gal-label">Wedding</div>
+          <div class="gal-meta">Renée and Hermann · 1959</div>
+        </div>
+        <div class="gal-item">
+          <div class="gal-label">Tușnad</div>
+          <div class="gal-meta">Pregnant with her son · 1961</div>
+        </div>
+        <div class="gal-item">
+          <div class="gal-label">With her mother</div>
+          <div class="gal-meta">Son's medical school graduation</div>
+        </div>
+        <div class="gal-item">
+          <div class="gal-label">Renée at her testimony</div>
+          <div class="gal-meta">Newton · October 1996</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOSSARY -->
+  <section class="chapter glossary" id="glossary">
+    <div class="container reveal">
+      <div class="chapter-num">Words and Terms</div>
+      <h2 class="chapter-title">Glossary</h2>
+
+      <div class="gloss-grid">
+        <div>
+          <div class="gloss-term">Transnistria</div>
+          <p class="gloss-def">A territory between the Dniester and Bug rivers, occupied by Romanian forces under Ion Antonescu during the Second World War. Used as a holding zone for the deportation and mass murder of Romanian and Ukrainian Jews. Estimates of Jewish deaths in Transnistria range from 250,000 to 380,000.</p>
+        </div>
+        <div>
+          <div class="gloss-term">Dorohoi</div>
+          <p class="gloss-def">A city in northeastern Romania, near the borders of Moldova and Ukraine. Before the war, roughly half its population was Jewish. The Dorohoi deportations to Transnistria took place in three waves, beginning in November 1941. Renée's family was on the third.</p>
+        </div>
+        <div>
+          <div class="gloss-term">Cofetărie</div>
+          <p class="gloss-def">Romanian for confectionery or pastry shop. The Pitaru family's shop, Cofetăria Pitaru, was the first of its kind in Dorohoi, modeled on Austrian and French traditions.</p>
+        </div>
+        <div>
+          <div class="gloss-term">Iron Guard / Black Shirts</div>
+          <p class="gloss-def">A Romanian fascist movement and its paramilitary. Carried out pogroms against Jews in the late 1930s and the early years of the war. The Cuza party operated alongside it with a similar program.</p>
+        </div>
+        <div>
+          <div class="gloss-term">Bug River</div>
+          <p class="gloss-def">The natural boundary between Romanian-occupied Transnistria and German-occupied Ukraine. Used as a disposal site for mass killings; victims were shot at the river's edge and dumped into the water.</p>
+        </div>
+        <div>
+          <div class="gloss-term">HIAS</div>
+          <p class="gloss-def">The Hebrew Immigrant Aid Society. Founded in 1881, it has resettled millions of Jews fleeing persecution. HIAS supported the Haimovici family during their six months in Rome in 1963 before they reached the United States.</p>
+        </div>
+        <div>
+          <div class="gloss-term">Aliyah</div>
+          <p class="gloss-def">Hebrew for "ascent." Refers to Jewish immigration to Israel. Renée's brother David emigrated on an aliyah of young pioneers in 1948, in time to see Israel proclaimed an independent state.</p>
+        </div>
+        <div>
+          <div class="gloss-term">Forsyth</div>
+          <p class="gloss-def">The Forsyth Dental Infirmary in Boston. Renée trained there as a dental hygienist before her postgraduate course in pediatric dentistry at Tufts.</p>
+        </div>
+        <div>
+          <div class="gloss-term">Maimonides</div>
+          <p class="gloss-def">A Modern Orthodox Jewish day school in Brookline, Massachusetts. Renée's son attended it for first and second grade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IN MEMORY -->
+  <section class="memorial">
+    <div class="memorial-symbol">✡</div>
+    <p class="memorial-text">In memory of the Pitaru family. For Aaron, who never came back. For everyone deported from Dorohoi in the autumn of 1941, and everyone who waited for them to come home.</p>
+    <p class="memorial-quote">"I hope that every child, no matter what kind of religion they practice, what kind of culture they have, will never be subjected to this kind of horrors. The ones that are talking about the past are going to be teaching the rest that things like this should never happen again in the history of the human race."</p>
+    <p class="memorial-attr">Renée Haimovici · Newton, Massachusetts · October 17, 1996</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">In memory of Dr. Renée Haimovici.</div>
+    <p>Testimony recorded October 17, 1996, in Newton, Massachusetts.<br>
+    Interviewer: Bernice Borison.<br>
+    Site by her granddaughter, Claudia.</p>
+  </footer>
+
+<script>
+(function(){
+  // Journey progress bar
+  const waypoints = [
+    { label: 'Dorohoi', pct: 0, sections: ['hero'] },
+    { label: 'Pogroms', pct: 14, sections: ['ch1','ch2'] },
+    { label: 'Deportation', pct: 28, sections: ['ch3'] },
+    { label: 'Oleanica', pct: 42, sections: ['ch4'] },
+    { label: 'Tulchin', pct: 56, sections: ['ch5'] },
+    { label: 'Return', pct: 70, sections: ['ch6','ch7'] },
+    { label: 'Boston', pct: 100, sections: ['ch8','aaron','timeline','family','gallery'] }
+  ];
+
+  const track = document.getElementById('journey-track');
+  const fill = document.getElementById('journey-fill');
+
+  waypoints.forEach(wp => {
+    const el = document.createElement('div');
+    el.className = 'journey-waypoint';
+    el.style.left = wp.pct + '%';
+    el.innerHTML = '<div class="journey-dot"></div><span class="journey-label">' + wp.label + '</span>';
+    wp.dotEl = el.querySelector('.journey-dot');
+    wp.labelEl = el.querySelector('.journey-label');
+    track.appendChild(el);
+  });
+
+  function updateJourney(){
+    const st = window.scrollY;
+    const dh = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPct = dh > 0 ? (st / dh) * 100 : 0;
+    fill.style.width = Math.min(scrollPct, 100) + '%';
+
+    const sectionMap = ['hero','ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8','aaron','timeline','family','gallery'];
+    let activeIdx = 0;
+    for (let i = sectionMap.length - 1; i >= 0; i--){
+      const el = document.getElementById(sectionMap[i]);
+      if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.42){
+        for (let j = 0; j < waypoints.length; j++){
+          if (waypoints[j].sections.includes(sectionMap[i])){ activeIdx = j; break; }
+        }
+        break;
+      }
+    }
+    waypoints.forEach((wp, i) => {
+      const visited = scrollPct >= wp.pct * 0.9;
+      const active = i === activeIdx;
+      wp.dotEl.classList.toggle('visited', visited);
+      wp.dotEl.classList.toggle('active', active);
+      wp.labelEl.classList.toggle('active', active);
+    });
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking){ ticking = true; requestAnimationFrame(() => { updateJourney(); ticking = false; }); }
+  }, { passive: true });
+  updateJourney();
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting){ e.target.classList.add('vis'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -24px 0px' });
+  revealEls.forEach(el => revealObs.observe(el));
+})();
+</script>
+</body>
+</html>
