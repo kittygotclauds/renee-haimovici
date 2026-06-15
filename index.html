@@ -311,6 +311,26 @@
     aspect-ratio: 3 / 2;
     max-width: 560px;
   }
+  .photo-trio {
+    margin: 56px 0;
+  }
+  .photo-trio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .photo-trio-grid .photo-cell {
+    aspect-ratio: 3 / 4;
+    max-width: none;
+    margin: 0;
+  }
+  @media (max-width: 600px) {
+    .photo-trio-grid { gap: 8px; }
+  }
   .photo-caption {
     font-family: var(--sans);
     font-size: 11px;
@@ -762,6 +782,15 @@
       <p>An eighty-two-year-old woman named Mrs. Arnold Gerard met them at the airport in New Bedford in a 1963 Buick they had never seen the like of. She drove them to a furnished apartment on the grounds of Union Hospital. The refrigerator was stocked. There was a television. There was a small bed for her son. She handed Herman a wallet with fifty dollars in it and told them she would see them every Saturday and that anything they needed they should ask her for.</p>
 
       <p>Herman did his medical residency at the V.A. hospital in Jamaica Plain. Renée trained at the Forsyth Dental Infirmary as a hygienist while her sister-in-law, who had emigrated by then, looked after her son. Then she did a postgraduate course in pediatric dentistry at Tufts. Her son went to Maimonides for first and second grade. She gave children, every day, the smile her father had been beaten out of.</p>
+
+      <div class="photo-trio">
+        <div class="photo-trio-grid">
+          <div class="photo-cell"><img src="robert-young.jpg" alt="Robert, around age two or three"></div>
+          <div class="photo-cell"><img src="robert-portrait.jpg" alt="Robert, school portrait"></div>
+          <div class="photo-cell"><img src="robert-harbor.jpg" alt="Robert at the harbor"></div>
+        </div>
+        <div class="photo-caption">Robert, growing up</div>
+      </div>
 
       <div class="photo-inline">
         <div class="photo-cell photo-cell--landscape"><img src="renee-son-graduation.jpg" alt="Renée at her son's medical school graduation"></div>
