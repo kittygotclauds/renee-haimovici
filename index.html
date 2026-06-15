@@ -311,6 +311,35 @@
     aspect-ratio: 3 / 2;
     max-width: 560px;
   }
+  .context-box {
+    max-width: 720px;
+    margin: 80px auto 20px;
+    padding: 36px 36px;
+    background: var(--bg-soft);
+    border-left: 2px solid var(--accent);
+  }
+  .context-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .context-text {
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    font-weight: 300;
+  }
+  .context-text em {
+    font-style: italic;
+    color: var(--ink);
+  }
+  @media (max-width: 600px) {
+    .context-box { padding: 28px 24px; margin: 60px 16px 0; }
+  }
   .photo-trio {
     margin: 56px 0;
   }
@@ -626,6 +655,12 @@
       <p>By 1940, it was clear that the future they had been planning for, a future in which Jews in Dorohoi would simply be Romanian citizens, was gone.</p>
     </div>
   </section>
+
+  <!-- HISTORICAL CONTEXT -->
+  <div class="context-box reveal">
+    <div class="context-label">Historical Context</div>
+    <p class="context-text">Between 250,000 and 380,000 Jews died in Transnistria under Romanian administration during the Second World War. Renée's family survived a series of deportations, mass killings, ghettos, and forced labor camps.</p>
+  </div>
 
   <!-- CHAPTER 3 -->
   <section class="chapter" id="ch3">
